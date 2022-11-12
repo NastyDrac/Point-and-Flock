@@ -45,9 +45,8 @@ func spawn_food():
 		add_child(new_food)
 		amount += 1
 		new_food.position = drop_spot
-	if times <= 0:
-		food_timer.start()
-		print(amount)
+		print(times)
+
 	
 
 func spawn_material():
