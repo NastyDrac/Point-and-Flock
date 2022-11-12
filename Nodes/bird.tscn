@@ -58,10 +58,10 @@ animations = [ {
 } ]
 
 [sub_resource type="CircleShape2D" id=13]
-radius = 14.5086
+radius = 12.0
 
 [sub_resource type="CircleShape2D" id=14]
-radius = 13.0384
+radius = 13.0
 
 [node name="Bird" type="KinematicBody2D"]
 collision_layer = 0

@@ -75,6 +75,7 @@ func _on_Area2D_mouse_exited():
 
 func _on_bird_body_area_entered(area):
 	if area.get_name() == "food":
+		get_parent().spawn_food()
 		eat()
 		
 	elif area.get_name() == "Materials" and randy == true:

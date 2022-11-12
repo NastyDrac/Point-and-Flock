@@ -6,10 +6,12 @@
 [sub_resource type="CapsuleShape2D" id=1]
 height = 44.0
 
-[node name="food" type="Area2D" groups=["food"]]
+[node name="worm" type="Area2D" groups=["food"]]
+
+[node name="food" type="Area2D" parent="."]
 script = ExtResource( 2 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="food"]
 position = Vector2( -1, 1 )
 rotation = 2.40332
 scale = Vector2( 0.25, 0.25 )
@@ -19,4 +21,4 @@ shape = SubResource( 1 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 1 )
 
-[connection signal="area_entered" from="." to="." method="_on_food_area_entered"]
+[connection signal="area_entered" from="food" to="food" method="_on_food_area_entered"]
