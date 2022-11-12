@@ -4,4 +4,5 @@ signal gathering
 
 
 func _on_Materials_area_entered(area):
-	pass
+	get_parent().spawn_material()
+	queue_free()
