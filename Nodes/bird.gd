@@ -1,5 +1,6 @@
 extends KinematicBody2D
 
+onready var lost_game = preload("res://Nodes/lose_screen.tscn")
 onready var Nest = preload("res://Nodes/Nest.tscn")
 onready var animate = get_node("AnimatedSprite")
 export var speed = 100
@@ -42,6 +43,7 @@ func move():
 		direction = destination - position
 		var normalized_direction = direction.normalized()
 		move_and_slide(normalized_direction * speed) 
+	
 
 func stop():
 	if position.distance_to(destination) < stop_distance:
@@ -61,9 +63,11 @@ func _physics_process(delta):
 	become_randy()
 	move()
 	select()
-	stop()
 	crave()
 	build()
+	lose_game()
+	leave_flock()
+	stop()
 
 
 func crave():
@@ -104,8 +108,24 @@ func gather():
 		print(num_of_material)
 
 func build():
-	if num_of_material >= 3:
+	if num_of_material >= 2:
 		num_of_material = 0
 		var new_build = Nest.instance()
 		get_parent().get_child(2).add_child(new_build)
 		new_build.position = position
+
+
+func leave_flock():
+	if hunger_level <= 0:
+		animate.playing = true
+		is_moving = true
+		destination = Vector2(600, 400)
+		move()
+
+func lose_game():
+	if hunger_level <= 0 and is_owned == true:
+		
+		var you_lose = lost_game.instance()
+		get_parent().add_child(you_lose)
+		
+		
