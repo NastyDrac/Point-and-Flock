@@ -59,9 +59,9 @@ func set_destination():
 
 func move():
 	if position < destination:
-		animate.flip_h = true
-	if position > destination:
 		animate.flip_h = false
+	if position > destination:
+		animate.flip_h = true
 	if is_moving == true:
 		direction = destination - position
 		var normalized_direction = direction.normalized()
@@ -141,7 +141,7 @@ func _on_Timer_timeout():
 	hunger_level -= 1
 	# Reset sounds to be played again next time play_sound() is called
 	has_squawked = false 
-	has_whistled = false #
+	has_whistled = false 
 
 func lose_game():
 	if hunger_level <= 0 and is_owned == true:

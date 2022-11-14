@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://Nodes/bird.gd" type="Script" id=1]
 [ext_resource path="res://sprites/Flying (32x32).png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://sprites/nestthought.png" type="Texture" id=5]
 [ext_resource path="res://sounds/Hello there Whistle 02.wav" type="AudioStream" id=6]
 [ext_resource path="res://sounds/Hungry Squawk 02.wav" type="AudioStream" id=7]
+[ext_resource path="res://sprites/new_bird_flying.png" type="Texture" id=8]
 
 [sub_resource type="AtlasTexture" id=4]
 flags = 4
@@ -53,11 +54,46 @@ flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 256, 0, 32, 32 )
 
+[sub_resource type="AtlasTexture" id=15]
+flags = 4
+atlas = ExtResource( 8 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=16]
+flags = 4
+atlas = ExtResource( 8 )
+region = Rect2( 32, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=17]
+flags = 4
+atlas = ExtResource( 8 )
+region = Rect2( 64, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=18]
+flags = 4
+atlas = ExtResource( 8 )
+region = Rect2( 96, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=19]
+flags = 4
+atlas = ExtResource( 8 )
+region = Rect2( 128, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=20]
+flags = 4
+atlas = ExtResource( 8 )
+region = Rect2( 160, 0, 32, 32 )
+
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ) ],
 "loop": true,
 "name": "default",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ) ],
+"loop": true,
+"name": "new_bird_flying",
 "speed": 5.0
 } ]
 
@@ -89,8 +125,11 @@ texture = ExtResource( 4 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 modulate = Color( 0.937255, 0.913725, 0.372549, 1 )
+scale = Vector2( 2, 2 )
 frames = SubResource( 1 )
+animation = "new_bird_flying"
 speed_scale = 5.0
+flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 13 )
