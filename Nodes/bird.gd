@@ -2,7 +2,6 @@ extends KinematicBody2D
 
 # INITIAL VARIABLES
 # References to other scenes
-onready var lost_game = preload("res://Nodes/lose_screen.tscn")
 onready var Nest = preload("res://Nodes/Nest.tscn")
 onready var nest_material = preload("res://Nodes/Nest.tscn")
 # References to sprites
@@ -159,11 +158,9 @@ func _on_Timer_timeout():
 	has_squawked = false 
 	has_whistled = false 
 
-func lose_game():
+func bird_death():
 	if hunger_level <= 0 and is_owned == true:
-		
-		var you_lose = lost_game.instance()
-		get_parent().add_child(you_lose)
+		get_parent()._lose_game()
 
 func _physics_process(delta):
 	set_destination()
@@ -172,6 +169,6 @@ func _physics_process(delta):
 	select()
 	crave()
 	build()
-	lose_game()
+	bird_death()
 	leave_flock()
 	stop()

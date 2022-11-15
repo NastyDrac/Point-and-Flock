@@ -9,8 +9,11 @@ onready var Egg = get_node("Nest/Egg")
 onready var Nest = get_node("Nest")
 onready var stuff = preload("res://Nodes/Materials.tscn")
 onready var location_spawn = get_node("Spawn_location")
+onready var lost_game = preload("res://Nodes/lose_screen.tscn")
 var amount = 0
+var high_score = 0
 
+const	SAVE_FILE_PATH = "user://savedata.save"
 
 func _on_Timer_timeout():
 	spawn_bird(location_spawn.position)
@@ -26,6 +29,8 @@ func _ready():
 
 func count():
 	number_of_birds += 1
+	if high_score < number_of_birds:
+		high_score = number_of_birds
 
 
 func _process(delta):
@@ -50,11 +55,12 @@ func spawn_food():
 	amount += 1
 	new_food.position = drop_spot
 
-
-	
-
 func spawn_material():
 	var material_spot = Vector2(rand_range(-500, 500), rand_range(-250, 250))
 	var new_material = stuff.instance()
 	add_child(new_material)
 	new_material.position = material_spot
+	
+func _lose_game():
+	var you_lose = lost_game.instance()
+	add_child(you_lose)
