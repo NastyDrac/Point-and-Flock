@@ -6,6 +6,7 @@ onready var lost_game = preload("res://Nodes/lose_screen.tscn")
 onready var Nest = preload("res://Nodes/Nest.tscn")
 onready var nest_material = preload("res://Nodes/Nest.tscn")
 # References to sprites
+onready var body = get_node("bird_body")
 onready var animate = get_node("AnimatedSprite")
 onready var sprite = get_node("AnimatedSprite")
 onready var hunger_bubble = get_node("bubble")
@@ -56,21 +57,29 @@ func set_destination():
 		destination = get_global_mouse_position()
 		selected = false
 		animate.playing = true
+		
 
 func move():
+	
 	if position < destination:
 		animate.flip_h = false
 	if position > destination:
 		animate.flip_h = true
 	if is_moving == true:
+	
+		
 		direction = destination - position
 		var normalized_direction = direction.normalized()
 		move_and_slide(normalized_direction * speed) 
+
+		
 
 func stop():
 	if position.distance_to(destination) < stop_distance:
 		is_moving = false
 		animate.playing = false
+		animate.frame = 0
+		
 
 
 # ... for managing "owned" bird states (hungry, randy, etc.)
@@ -99,6 +108,7 @@ func become_randy():
 
 # ... for eating and and nesting
 func eat():
+		
 		hunger_level += 10
 		get_parent().amount -= 1
 		if is_owned == false:
@@ -134,6 +144,12 @@ func leave_flock():
 		is_moving = true
 		destination = Vector2(600, 400)
 		move()
+		if position.x >= 550 and hunger_level <= 0:
+			queue_free()
+	if position.x >= 550 and hunger_level > 0:
+		destination = Vector2(rand_range(-400, 400), rand_range(-250, 250))
+		is_moving = true
+		animate.playing = true
 
 # ... for managing timer-based state changes (every three seconds)
 func _on_Timer_timeout():

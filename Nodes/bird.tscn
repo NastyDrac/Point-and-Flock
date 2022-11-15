@@ -100,8 +100,8 @@ animations = [ {
 [sub_resource type="CircleShape2D" id=13]
 radius = 12.0
 
-[sub_resource type="CircleShape2D" id=14]
-radius = 13.0
+[sub_resource type="RectangleShape2D" id=21]
+extents = Vector2( 8.12137, 21.4135 )
 
 [node name="Bird" type="KinematicBody2D"]
 input_pickable = true
@@ -124,7 +124,6 @@ visible = false
 texture = ExtResource( 4 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-modulate = Color( 0.937255, 0.913725, 0.372549, 1 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 1 )
 animation = "new_bird_flying"
@@ -137,7 +136,10 @@ shape = SubResource( 13 )
 [node name="bird_body" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bird_body"]
-shape = SubResource( 14 )
+position = Vector2( 0.791, 0.237 )
+rotation = 2.07694
+scale = Vector2( 1, 1 )
+shape = SubResource( 21 )
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 3.0

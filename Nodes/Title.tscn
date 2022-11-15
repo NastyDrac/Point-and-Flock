@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Nodes/bird.tscn" type="PackedScene" id=1]
+[ext_resource path="res://sprites/Working_title.png" type="Texture" id=2]
+[ext_resource path="res://Nodes/Title.gd" type="Script" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 108, 25.25 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 66, 18.5 )
+
+[node name="Title_screen" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="WorkingTitle" type="Sprite" parent="."]
+position = Vector2( 0, 6 )
+texture = ExtResource( 2 )
+centered = false
+
+[node name="start_game" type="Area2D" parent="WorkingTitle"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorkingTitle/start_game"]
+position = Vector2( 249, 454.75 )
+shape = SubResource( 1 )
+
+[node name="credits" type="Area2D" parent="WorkingTitle"]
+position = Vector2( 771, 465 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorkingTitle/credits"]
+position = Vector2( 6, -8.5 )
+shape = SubResource( 2 )
+
+[node name="Bird" parent="." instance=ExtResource( 1 )]
+position = Vector2( 494, 329 )
+
+[connection signal="area_entered" from="WorkingTitle/start_game" to="." method="_on_start_game_area_entered"]
+[connection signal="area_entered" from="WorkingTitle/credits" to="." method="_on_credits_area_entered"]

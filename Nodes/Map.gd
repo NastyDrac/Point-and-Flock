@@ -8,13 +8,18 @@ var food_spawn = preload("res://Nodes/food.tscn")
 onready var Egg = get_node("Nest/Egg")
 onready var Nest = get_node("Nest")
 onready var stuff = preload("res://Nodes/Materials.tscn")
+onready var location_spawn = get_node("Spawn_location")
 var amount = 0
 
+
 func _on_Timer_timeout():
-	spawn_bird(position)
+	spawn_bird(location_spawn.position)
+	print("new bird")
+	
 	timer.stop()
 
 func _ready():
+
 	randomize()
 	spawn_material()
 
@@ -34,6 +39,7 @@ func spawn_bird(place):
 	var new_bird = spawn_bird.instance()
 	add_child(new_bird)
 	new_bird.position = place
+	
 	
 	
 func spawn_food():
