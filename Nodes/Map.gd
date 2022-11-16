@@ -17,9 +17,9 @@ const	SAVE_FILE_PATH = "user://savedata.save"
 
 func _on_Timer_timeout():
 	spawn_bird(location_spawn.position)
-	print("new bird")
 	
-	timer.stop()
+	
+	timer.start(60)
 
 func _ready():
 

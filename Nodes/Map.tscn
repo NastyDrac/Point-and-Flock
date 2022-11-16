@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Nodes/bird.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Nodes/Map.gd" type="Script" id=2]
@@ -72,6 +72,9 @@
 3/shapes = [  ]
 3/z_index = 0
 
+[sub_resource type="OccluderPolygon2D" id=4]
+polygon = PoolVector2Array( 32.4975, 0.247864, 32, 0, 25.6656, 1.85538, 22.8525, 11.5004, 17.6281, 19.1361, 19.6375, 21.5474, 16.8243, 24.7624, 11.198, 37.2206, 7.17926, 48.0713, 7.58115, 55.3051, 5.16986, 61.3333, 5.16986, 74.1933, 11.198, 80.2215, 16.4224, 77.8102, 21.6469, 80.2215, 24.46, 94.2872, 40.1332, 94.2872, 40.5351, 83.0346, 42.5445, 85.4459, 55.4046, 84.6422, 55.4046, 81.4271, 61.4327, 73.7914, 59.0215, 70.1746, 60.629, 65.7539, 60.629, 60.9314, 60.2271, 54.0995, 57.4139, 53.2957, 57.8158, 43.2487, 56.6102, 40.8375, 55.8064, 36.015, 50.1801, 32.3981, 49.7783, 25.1643, 42.1426, 15.9211, 41.7407, 9.89291, 33.3013, 0 )
+
 [sub_resource type="TileSet" id=3]
 0/name = "RPG Nature Tileset.png 0"
 0/texture = ExtResource( 3 )
@@ -80,6 +83,7 @@
 0/region = Rect2( 64, 0, 64, 96 )
 0/tile_mode = 0
 0/occluder_offset = Vector2( 0, 0 )
+0/occluder = SubResource( 4 )
 0/navigation_offset = Vector2( 0, 0 )
 0/shape_offset = Vector2( 0, 0 )
 0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -140,8 +144,6 @@ tile_data = PoolIntArray( -1179681, 0, 0, -1179680, 0, 65537, -1179679, 0, 0, -1
 z_index = -1
 tile_set = SubResource( 3 )
 cell_size = Vector2( 16, 16 )
-collision_layer = 0
-collision_mask = 0
 format = 1
 tile_data = PoolIntArray( -1114140, 0, 0, -1048577, 0, 0, -917509, 0, 0, -983035, 536870912, 0, -983020, 0, 0, -983015, 0, 0, -917495, 0, 0, -720925, 0, 0, -524318, 536870912, 0, -589820, 0, 0, -524273, 0, 0, -393202, 536870912, 0, -327658, 0, 0, -196637, 0, 0, -262138, 0, 0, 262168, 0, 0, 524260, 0, 0, 524307, 536870912, 0, 655337, 0, 0, 851940, 0, 0, 786458, 0, 0 )
 
