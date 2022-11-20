@@ -11,7 +11,7 @@ onready var stuff = preload("res://Nodes/Materials.tscn")
 onready var location_spawn = get_node("Spawn_location")
 onready var lost_game = preload("res://Nodes/lose_screen.tscn")
 var amount = 0
-
+var high_score = number_of_birds
 
 
 
@@ -29,7 +29,7 @@ func _ready():
 
 func count():
 	number_of_birds += 1
-
+	
 
 
 func _process(delta):
