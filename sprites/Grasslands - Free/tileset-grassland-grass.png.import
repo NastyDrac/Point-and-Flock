@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/RPG Nature Tileset.png-358f8ecd1fc2ebd8b8d06969fe8891a6.stex"
+path="res://.import/tileset-grassland-grass.png-4c0af51c6cd1578349b897f5b4a9c9e7.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://RPG Nature Tileset.png"
-dest_files=[ "res://.import/RPG Nature Tileset.png-358f8ecd1fc2ebd8b8d06969fe8891a6.stex" ]
+source_file="res://sprites/Grasslands - Free/tileset-grassland-grass.png"
+dest_files=[ "res://.import/tileset-grassland-grass.png-4c0af51c6cd1578349b897f5b4a9c9e7.stex" ]
 
 [params]
 

@@ -36,7 +36,8 @@ var has_whistled = false
 func play_sound(AudioStream_object):        # Mandatory argument requires pointer to AudioStreamPlayer object (squawk, whistle, etc.)
 	if AudioStream_object.playing == false:
 		AudioStream_object.play()
-
+func _ready():
+	animate.self_modulate = "38ff00"
 
 # "OWNED" BIRD FUNCTIONS
 # ... for selecting and moving birds
@@ -86,6 +87,7 @@ func crave():
 	if hunger_level < 6:
 		hunger_bubble.visible = true
 		worm.visible = true
+		animate.self_modulate = "ff4949"
 		if has_squawked == false:
 			play_sound(squawk)
 			has_squawked = true
@@ -113,7 +115,7 @@ func eat():
 		if is_owned == false:
 			get_parent().count()
 			is_owned = true
-			sprite.modulate = "ffffff"
+			sprite.self_modulate = "ffffff"
 
 func gather():
 	if randy == true:
