@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://Nodes/bird.gd" type="Script" id=1]
 [ext_resource path="res://sprites/Flying (32x32).png" type="Texture" id=2]
@@ -8,6 +8,27 @@
 [ext_resource path="res://sounds/Hello there Whistle 02.wav" type="AudioStream" id=6]
 [ext_resource path="res://sounds/Hungry Squawk 02.wav" type="AudioStream" id=7]
 [ext_resource path="res://sprites/new_bird_flying.png" type="Texture" id=8]
+[ext_resource path="res://Freak.png" type="Texture" id=9]
+
+[sub_resource type="AtlasTexture" id=21]
+flags = 4
+atlas = ExtResource( 9 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=22]
+flags = 4
+atlas = ExtResource( 9 )
+region = Rect2( 0, 32, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=23]
+flags = 4
+atlas = ExtResource( 9 )
+region = Rect2( 0, 64, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=24]
+flags = 4
+atlas = ExtResource( 9 )
+region = Rect2( 0, 96, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=4]
 flags = 4
@@ -86,6 +107,11 @@ region = Rect2( 160, 0, 32, 32 )
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
+"frames": [ SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ) ],
+"loop": true,
+"name": "Freak",
+"speed": 3.0
+}, {
 "frames": [ SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ) ],
 "loop": true,
 "name": "default",
@@ -103,15 +129,19 @@ radius = 12.0
 [node name="Bird" type="KinematicBody2D"]
 input_pickable = true
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="nest_bubble" type="Sprite" parent="."]
+physics_interpolation_mode = 2
 visible = false
-position = Vector2( 14, -18 )
+position = Vector2( 8, -31 )
 texture = ExtResource( 5 )
 
 [node name="bubble" type="Sprite" parent="."]
 visible = false
-position = Vector2( 14, -18 )
+position = Vector2( 8, -31 )
 texture = ExtResource( 3 )
 
 [node name="worm" type="Sprite" parent="bubble"]
@@ -119,7 +149,7 @@ visible = false
 texture = ExtResource( 4 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-self_modulate = Color( 1, 0.286275, 0.286275, 1 )
+self_modulate = Color( 1, 0.937255, 0, 1 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 1 )
 animation = "new_bird_flying"

@@ -37,7 +37,7 @@ func play_sound(AudioStream_object):        # Mandatory argument requires pointe
 	if AudioStream_object.playing == false:
 		AudioStream_object.play()
 func _ready():
-	animate.self_modulate = "38ff00"
+	animate.self_modulate = "ffef00"
 
 # "OWNED" BIRD FUNCTIONS
 # ... for selecting and moving birds
@@ -102,6 +102,7 @@ func become_randy():
 		if has_whistled == false:
 			play_sound(whistle)
 			has_whistled = true
+			
 	else:
 		randy = false
 		mate.visible = false
@@ -174,3 +175,14 @@ func _physics_process(delta):
 	bird_death()
 	leave_flock()
 	stop()
+	if is_owned == true and hunger_level > 5:
+		animate.self_modulate = "ffffff"
+	if animate.flip_h == true and mate.visible == true:
+		mate.flip_h = false
+	else: 
+		mate.flip_h = true
+
+	if animate.flip_h == true and hunger_bubble.visible == true:
+		hunger_bubble.flip_h = false
+	else:
+		hunger_bubble.flip_h = true

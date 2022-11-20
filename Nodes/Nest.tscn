@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://sprites/Nest.png" type="Texture" id=1]
 [ext_resource path="res://Nodes/Nest.gd" type="Script" id=2]
+[ext_resource path="res://sprites/Particle.png" type="Texture" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 29.0689
+
+[sub_resource type="CurveTexture" id=2]
 
 [node name="Nest" type="Area2D"]
 script = ExtResource( 2 )
@@ -19,6 +22,17 @@ shape = SubResource( 1 )
 [node name="Timer" type="Timer" parent="."]
 wait_time = 3.0
 autostart = true
+
+[node name="Particles2D" type="Particles2D" parent="."]
+emitting = false
+amount = 13
+lifetime = 3.0
+one_shot = true
+speed_scale = 23.9
+randomness = 1.0
+local_coords = false
+texture = ExtResource( 3 )
+normal_map = SubResource( 2 )
 
 [connection signal="area_entered" from="." to="." method="_on_Nest_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_Nest_area_exited"]
