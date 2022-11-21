@@ -38,7 +38,8 @@ func play_sound(AudioStream_object):        # Mandatory argument requires pointe
 		AudioStream_object.play()
 func _ready():
 	animate.self_modulate = "ffef00"
-
+	squawk.pitch_scale = rand_range(.5,1.5)
+	whistle.pitch_scale = rand_range(.5,1.5)
 # "OWNED" BIRD FUNCTIONS
 # ... for selecting and moving birds
 func _on_Area2D_mouse_entered(): # Detects mouse on bird
