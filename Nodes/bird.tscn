@@ -123,15 +123,13 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="CircleShape2D" id=13]
-radius = 12.0
+[sub_resource type="CapsuleShape2D" id=25]
+radius = 22.8107
+height = 29.3391
 
 [node name="Bird" type="KinematicBody2D"]
 input_pickable = true
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="nest_bubble" type="Sprite" parent="."]
 physics_interpolation_mode = 2
@@ -157,7 +155,9 @@ speed_scale = 5.0
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 13 )
+position = Vector2( 2, -2 )
+rotation = 2.07694
+shape = SubResource( 25 )
 
 [node name="bird_body" type="Area2D" parent="."]
 
