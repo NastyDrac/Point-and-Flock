@@ -15,7 +15,7 @@ extents = Vector2( 66, 18.5 )
 resource_name = "Arrow"
 length = 10.0
 loop = true
-step = 0.25
+step = 0.125
 tracks/0/type = "bezier"
 tracks/0/path = NodePath("Cursor/CollisionShape2D/Sprite:position:x")
 tracks/0/interp = 1
@@ -24,7 +24,7 @@ tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
 "points": PoolRealArray( 181, -0.25, 0, 0.25, 0, 156, -0.25, 0, 0.25, 0, 156, -0.25, 0, 0.25, 0, -135, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 5, 6.5, 6.8, 9.5 )
+"times": PoolRealArray( 2, 3.5, 3.75, 6.5 )
 }
 tracks/1/type = "bezier"
 tracks/1/path = NodePath("Cursor/CollisionShape2D/Sprite:position:y")
@@ -34,7 +34,7 @@ tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
 "points": PoolRealArray( -311, -0.25, 0, 0.25, 0, -348, -0.25, 0, 0.25, 0, -348, -0.25, 0, 0.25, 0, -217, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 5, 6.5, 6.8, 9.5 )
+"times": PoolRealArray( 2, 3.5, 3.75, 6.5 )
 }
 tracks/2/type = "bezier"
 tracks/2/path = NodePath("Cursor/CollisionShape2D/Sprite:rotation_degrees")
@@ -54,7 +54,7 @@ tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
 "points": PoolRealArray( 0.640625, -0.25, 0, 0.25, 0, 0.640625, -0.25, 0, 0.25, 0, 0.5, -0.25, 0, 0.25, 0, 0.641, -0.25, 0, 0.25, 0, 0.641, -0.25, 0, 0.25, 0, 0.5, -0.25, 0, 0.25, 0, 0.641, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 5, 6.5, 6.6, 6.7, 9.5, 9.6, 9.7 )
+"times": PoolRealArray( 2, 3.5, 3.625, 3.75, 6.5, 6.625, 6.75 )
 }
 tracks/4/type = "bezier"
 tracks/4/path = NodePath("Cursor/CollisionShape2D/Sprite:scale:y")
@@ -64,7 +64,7 @@ tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
 "points": PoolRealArray( 0.640625, -0.25, 0, 0.25, 0, 0.640625, -0.25, 0, 0.25, 0, 0.5, -0.25, 0, 0.25, 0, 0.641, -0.25, 0, 0.25, 0, 0.641, -0.25, 0, 0.25, 0, 0.5, -0.25, 0, 0.25, 0, 0.641, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 5, 6.5, 6.6, 6.7, 9.5, 9.6, 9.7 )
+"times": PoolRealArray( 2, 3.5, 3.625, 3.75, 6.5, 6.625, 6.75 )
 }
 tracks/5/type = "bezier"
 tracks/5/path = NodePath("Cursor/CollisionShape2D/Sprite:modulate:r")
@@ -74,7 +74,7 @@ tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
 "points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 3, 5, 9.7, 10 )
+"times": PoolRealArray( -0.25, 2, 6.75, 7.75 )
 }
 tracks/6/type = "bezier"
 tracks/6/path = NodePath("Cursor/CollisionShape2D/Sprite:modulate:g")
@@ -84,7 +84,7 @@ tracks/6/imported = false
 tracks/6/enabled = true
 tracks/6/keys = {
 "points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 3, 5, 9.7, 10 )
+"times": PoolRealArray( 0, 2, 6.75, 7.75 )
 }
 tracks/7/type = "bezier"
 tracks/7/path = NodePath("Cursor/CollisionShape2D/Sprite:modulate:b")
@@ -94,7 +94,7 @@ tracks/7/imported = false
 tracks/7/enabled = true
 tracks/7/keys = {
 "points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 3, 5, 9.7, 10 )
+"times": PoolRealArray( 0, 2, 6.75, 7.75 )
 }
 tracks/8/type = "bezier"
 tracks/8/path = NodePath("Cursor/CollisionShape2D/Sprite:modulate:a")
@@ -104,7 +104,7 @@ tracks/8/imported = false
 tracks/8/enabled = true
 tracks/8/keys = {
 "points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 3, 5, 9.7, 10 )
+"times": PoolRealArray( 0, 2, 6.75, 7.75 )
 }
 
 [sub_resource type="Animation" id=4]
@@ -248,10 +248,15 @@ texture = ExtResource( 4 )
 [node name="Bird" parent="." instance=ExtResource( 1 )]
 position = Vector2( 494, 329 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "Arrow"
+[node name="CursorAnimation" type="AnimationPlayer" parent="."]
 anims/Arrow = SubResource( 3 )
 anims/RESET = SubResource( 4 )
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+autostart = true
+
 [connection signal="area_entered" from="WorkingTitle/start_game" to="." method="_on_start_game_area_entered"]
 [connection signal="area_entered" from="WorkingTitle/credits" to="." method="_on_credits_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

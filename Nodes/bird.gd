@@ -57,29 +57,22 @@ func set_destination():
 		destination = get_global_mouse_position()
 		selected = false
 		animate.playing = true
-		
 
 func move():
-	
 	if position < destination:
 		animate.flip_h = false
 	if position > destination:
 		animate.flip_h = true
 	if is_moving == true:
-	
-		
 		direction = destination - position
 		var normalized_direction = direction.normalized()
 		move_and_slide(normalized_direction * speed) 
-
-		
 
 func stop():
 	if position.distance_to(destination) < stop_distance:
 		is_moving = false
 		animate.playing = false
 		animate.frame = 0
-		
 
 
 # ... for managing "owned" bird states (hungry, randy, etc.)

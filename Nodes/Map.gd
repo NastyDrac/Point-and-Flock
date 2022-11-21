@@ -17,19 +17,15 @@ var high_score = number_of_birds
 
 func _on_Timer_timeout():
 	spawn_bird(location_spawn.position)
-	
-	
 	timer.start(60)
 
 func _ready():
-
 	randomize()
 	spawn_material()
 
 
 func count():
 	number_of_birds += 1
-	
 
 
 func _process(delta):
@@ -48,7 +44,6 @@ func spawn_bird(place):
 	
 	
 func spawn_food():
-
 	var drop_spot = Vector2(rand_range(-500, 500), rand_range(-250, 250))
 	var new_food = food_spawn.instance()
 	add_child(new_food)
