@@ -1,8 +1,13 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://sprites/lose_screen.png" type="Texture" id=1]
 [ext_resource path="res://play_again.gd" type="Script" id=2]
 [ext_resource path="res://Nodes/quit.gd" type="Script" id=3]
+[ext_resource path="res://Font/RoundyRainbows.otf" type="DynamicFontData" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 21
+font_data = ExtResource( 4 )
 
 [node name="lose_screen" type="Sprite"]
 texture = ExtResource( 1 )
@@ -30,9 +35,13 @@ script = ExtResource( 3 )
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 0, -1 )
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
+[node name="Label" type="Label" parent="."]
+margin_left = -21.0
+margin_top = 3.0
+margin_right = 19.0
+margin_bottom = 22.0
+grow_horizontal = 2
+custom_fonts/font = SubResource( 1 )
 
 [connection signal="pressed" from="play_again" to="play_again" method="_on_Button_pressed"]
 [connection signal="pressed" from="quit" to="quit" method="_on_quit_pressed"]

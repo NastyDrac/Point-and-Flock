@@ -92,7 +92,7 @@ config/icon="res://icon.png"
 
 [autoload]
 
-AntialiasedLine2DTexture="*res://addons/antialiased_line2d/texture.gd"
+AntialiasedLine2DTexture="res://addons/antialiased_line2d/texture.gd"
 
 [display]
 

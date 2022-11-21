@@ -59,4 +59,4 @@ func spawn_material():
 func _lose_game():
 	var you_lose = lost_game.instance()
 	add_child(you_lose)
-
+	
