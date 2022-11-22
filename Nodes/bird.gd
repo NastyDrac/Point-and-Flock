@@ -9,6 +9,9 @@ onready var body = get_node("bird_body")
 onready var animate = get_node("AnimatedSprite")
 onready var sprite = get_node("AnimatedSprite")
 onready var hunger_bubble = get_node("bubble")
+onready var hungry_animation = $HungryAnimation
+onready var famished_animation = $FamishedAnimation
+onready var randy_animation = $RandyAnimation
 onready var worm = get_node("bubble/worm")
 onready var mate = get_node("nest_bubble")
 # Bird parameters/attributes
@@ -40,6 +43,8 @@ func _ready():
 	animate.self_modulate = "ffef00"
 	squawk.pitch_scale = rand_range(.9,1.5)
 	whistle.pitch_scale = rand_range(.9,1.5)
+
+
 # "OWNED" BIRD FUNCTIONS
 # ... for selecting and moving birds
 func _on_Area2D_mouse_entered(): # Detects mouse on bird
@@ -78,33 +83,41 @@ func stop():
 
 # ... for managing "owned" bird states (hungry, randy, etc.)
 func crave():
-	if hunger_level < 6:
-		hunger_bubble.visible = true
-		worm.visible = true
+	if (hunger_level < 6):
+		#hunger_bubble.visible = true
+		#worm.visible = true
+		hungry_animation.play("Hungry")
 		animate.self_modulate = "ff4949"
 		if has_squawked == false:
 			play_sound(squawk)
 			has_squawked = true
-	if hunger_level > 5:
-		hunger_bubble.visible = false
-		worm.visible = false
+	if hunger_level <= 2:
+		#hunger_bubble.visible = false
+		#worm.visible = false
+		#famished_bubble.visible = true
+		famished_animation.play("Hungry")
+		if has_squawked == false:
+			play_sound(squawk)
+			has_squawked = true
+	#if hunger_level > 5:
+		#hunger_bubble.visible = false
+		#worm.visible = false
 
 func become_randy():
 	if hunger_level > 15:
 		randy = true
-		mate.visible = true
+		#mate.visible = true
+		randy_animation.play("Randy")
 		if has_whistled == false:
 			play_sound(whistle)
 			has_whistled = true
-			
 	else:
 		randy = false
-		mate.visible = false
+		#mate.visible = false
 
 
 # ... for eating and and nesting
 func eat():
-		
 		hunger_level += 10
 		get_parent().amount -= 1
 		if is_owned == false:
