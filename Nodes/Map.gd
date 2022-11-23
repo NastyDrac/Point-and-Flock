@@ -1,7 +1,7 @@
 extends Node2D
 var max_food 
 onready var timer = get_node("Timer")
-onready var score = get_node("Label")
+onready var score_display = get_node("Label") # points to the label displaying the current score
 var spawn_bird = preload("res://Nodes/bird.tscn")
 export var number_of_birds = 0
 var food_spawn = preload("res://Nodes/food.tscn")
@@ -11,9 +11,8 @@ onready var stuff = preload("res://Nodes/Materials.tscn")
 onready var location_spawn = get_node("Spawn_location")
 onready var lost_game = preload("res://Nodes/lose_screen.tscn")
 var amount = 0
-var high_score = number_of_birds
-
-
+# var high_score = number_of_birds # Consider removing this variable as it is not called
+onready var global = get_node("res://Global.gd")
 
 func _on_Timer_timeout():
 	spawn_bird(location_spawn.position)
@@ -32,7 +31,8 @@ func _process(delta):
 	max_food = number_of_birds
 	if amount < number_of_birds:
 		spawn_food()
-	score.text = var2str(number_of_birds)
+	score_display.text = var2str(number_of_birds)
+	#print(high_scores)
 	
 
 	

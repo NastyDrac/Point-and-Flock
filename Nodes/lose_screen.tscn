@@ -49,6 +49,30 @@ script = ExtResource( 3 )
 position = Vector2( 0, -1 )
 
 [node name="Label" type="Label" parent="."]
+margin_left = -19.0
+margin_top = -104.0
+margin_right = 21.0
+margin_bottom = -80.0
+grow_horizontal = 2
+custom_fonts/font = SubResource( 1 )
+
+[node name="RequestPlayerName" type="Label" parent="."]
+margin_left = -473.0
+margin_top = 245.0
+margin_right = -365.0
+margin_bottom = 269.0
+grow_horizontal = 2
+custom_fonts/font = SubResource( 1 )
+
+[node name="HighScoresHeader" type="Label" parent="."]
+margin_left = -19.0
+margin_top = -51.0
+margin_right = 21.0
+margin_bottom = -27.0
+grow_horizontal = 2
+custom_fonts/font = SubResource( 1 )
+
+[node name="HighScoreList" type="Label" parent="."]
 margin_left = -21.0
 margin_top = 3.0
 margin_right = 19.0
@@ -56,7 +80,7 @@ margin_bottom = 22.0
 grow_horizontal = 2
 custom_fonts/font = SubResource( 1 )
 
-[node name="message" type="Label" parent="."]
+[node name="GameOverMessage" type="Label" parent="."]
 margin_left = -327.0
 margin_top = -230.0
 margin_right = 350.0
@@ -64,6 +88,13 @@ margin_bottom = -159.0
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 4 )
 text = "Oh NO! You Flocked Up."
+
+[node name="LineEdit" type="LineEdit" parent="."]
+visible = false
+margin_left = -325.0
+margin_top = 244.0
+margin_right = -196.0
+margin_bottom = 268.0
 
 [connection signal="pressed" from="play_again" to="play_again" method="_on_Button_pressed"]
 [connection signal="pressed" from="quit" to="quit" method="_on_quit_pressed"]
