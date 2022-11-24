@@ -1,9 +1,6 @@
-First
+5
 Bryan
-2
-Second
+3
 Dustin
 1
-Third
 Bjird
-0

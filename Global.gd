@@ -1,6 +1,6 @@
 extends Node
 
-var high_scores : Dictionary = {}
+var high_scores = []
 onready var initial_save_filepath = "res://savedata.txt"
 const savedata_filepath = "user://savedata.txt"
 
@@ -14,11 +14,11 @@ func load_high_scores():
 		return # Future Update: Add code to create a version of res://savedata.txt
 	file.open(initial_save_filepath, File.READ)
 	while not file.eof_reached(): # iterate through all lines until the end of file is reached
-		var key = file.get_line()
-		var value_name = file.get_line()
-		var value_score = int(file.get_line())
-		if len(key) > 0:
-			high_scores[key] = [value_name, value_score]
+		var first_element = int(file.get_line())
+		var second_element = file.get_line()
+		high_scores.append([first_element, second_element])
+		if len(high_scores) > 3:
+			high_scores.pop_back()
 	file.close()
 
 func save_high_score():
