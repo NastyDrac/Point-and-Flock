@@ -8,7 +8,7 @@ onready var request_name = get_node("../RequestPlayerName")
 onready var player_input = get_node("../LineEdit")
 onready var header = get_node("../HighScoresHeader")
 onready var high_score1 = get_node("../HighScoreList")
-onready var player_score = int(var2str(get_parent().get_parent().number_of_birds))
+onready var player_score = Global.number_of_birds
 onready var run = 0 # To temporarily fix a bug that causes manage_high_scores() to run twice, messing up the High Scores table.
 
 
@@ -28,13 +28,9 @@ func manage_high_scores(score):
 		Global.high_scores.pop_back()
 	Global.high_scores.sort_custom(CustomSorter, "sort_descending")
 	if player_score > Global.high_scores[2][0]:
-		print(Global.high_scores)
-		Global.high_scores.append([player_score, "TestPlayer"])
-		print(Global.high_scores)
+		Global.high_scores.append([Global.number_of_birds, Global.player_name])
 		Global.high_scores.sort_custom(CustomSorter, "sort_descending")
-		print(Global.high_scores)
 		Global.high_scores.pop_back()
-		print(Global.high_scores)
 
 func populate_high_scores():
 	high_score1.text = ""

@@ -1,9 +1,13 @@
 extends Node2D
 var max_food 
+onready var global = get_node("res://Global.gd")
 onready var timer = get_node("Timer")
 onready var score_display = get_node("Label") # points to the label displaying the current score
+onready var lose_animation = get_node("GameOver")
+onready var highscore_animation = get_node("GameOverHighScore")
+onready var player_input = $PlayerInput
+onready var player_name = Global.player_name
 var spawn_bird = preload("res://Nodes/bird.tscn")
-export var number_of_birds = 0
 var food_spawn = preload("res://Nodes/food.tscn")
 onready var Egg = get_node("Nest/Egg")
 onready var Nest = get_node("Nest")
@@ -12,7 +16,6 @@ onready var location_spawn = get_node("Spawn_location")
 onready var lost_game = preload("res://Nodes/lose_screen.tscn")
 var amount = 0
 # var high_score = number_of_birds # Consider removing this variable as it is not called
-onready var global = get_node("res://Global.gd")
 
 func _on_Timer_timeout():
 	spawn_bird(location_spawn.position)
@@ -24,14 +27,14 @@ func _ready():
 
 
 func count():
-	number_of_birds += 1
+	Global.number_of_birds += 1
 
 
 func _process(delta):
-	max_food = number_of_birds
-	if amount < number_of_birds:
+	max_food = Global.number_of_birds
+	if amount < Global.number_of_birds:
 		spawn_food()
-	score_display.text = var2str(number_of_birds)
+	score_display.text = var2str(Global.number_of_birds)
 	#print(high_scores)
 	
 
@@ -55,8 +58,16 @@ func spawn_material():
 	var new_material = stuff.instance()
 	add_child(new_material)
 	new_material.position = material_spot
-	
+
 func _lose_game():
-	var you_lose = lost_game.instance()
-	add_child(you_lose)
-	
+	#var you_lose = lost_game.instance()
+	#add_child(you_lose)
+	if Global.number_of_birds > Global.high_scores[2][0]: # Checks if player's score > lowest high score
+		highscore_animation.play("HighScorePrompt")
+	else:
+		lose_animation.play("GameOverAnimation")
+	yield(get_tree().create_timer(10), "timeout")
+	Global.player_name = player_input.text
+	if Global.player_name == "":
+		Global.player_name = "TooSlowToEnterName"
+	get_tree().change_scene("res://Nodes/lose_screen.tscn")

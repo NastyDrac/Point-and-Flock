@@ -1,5 +1,7 @@
 extends Node
 
+var number_of_birds : int = 0
+var player_name : String = ""
 var high_scores = []
 onready var initial_save_filepath = "res://savedata.txt"
 const savedata_filepath = "user://savedata.txt"
