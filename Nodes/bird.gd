@@ -14,6 +14,7 @@ onready var famished_animation = $FamishedAnimation
 onready var randy_animation = $RandyAnimation
 onready var worm = get_node("bubble/worm")
 onready var mate = get_node("nest_bubble")
+onready var idleTimer = get_node("AnimatedSprite/idleTimer")
 # Bird parameters/attributes
 export var speed = 100
 var selected = false
@@ -193,3 +194,14 @@ func _physics_process(delta):
 		hunger_bubble.flip_h = false
 	else:
 		hunger_bubble.flip_h = true
+
+
+func _on_idleTimer_timeout():
+	animate.play("Freak")
+	animate.playing = true
+
+
+func _on_AnimatedSprite_animation_finished(Freak):
+	animate.play("new_bird_flying")
+	animate.frame = 0
+	idleTimer = rand_range(5, 10)
