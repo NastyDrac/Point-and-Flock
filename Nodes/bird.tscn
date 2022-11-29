@@ -85,6 +85,7 @@ height = 29.3391
 [sub_resource type="Animation" id=26]
 resource_name = "Hungry"
 length = 3.0
+loop = true
 tracks/0/type = "bezier"
 tracks/0/path = NodePath("../bubble:self_modulate:r")
 tracks/0/interp = 1
@@ -544,6 +545,7 @@ tracks/3/keys = {
 [sub_resource type="Animation" id=31]
 resource_name = "Randy"
 length = 3.0
+loop = true
 tracks/0/type = "bezier"
 tracks/0/path = NodePath("nest_bubble:self_modulate:r")
 tracks/0/interp = 1
@@ -551,8 +553,8 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 1 )
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1, 3 )
 }
 tracks/1/type = "bezier"
 tracks/1/path = NodePath("nest_bubble:self_modulate:g")
@@ -561,8 +563,8 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 1 )
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1, 3 )
 }
 tracks/2/type = "bezier"
 tracks/2/path = NodePath("nest_bubble:self_modulate:b")
@@ -571,8 +573,8 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 1 )
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1, 3 )
 }
 tracks/3/type = "bezier"
 tracks/3/path = NodePath("nest_bubble:self_modulate:a")
@@ -581,8 +583,8 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 1 )
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1, 3 )
 }
 
 [node name="Bird" type="KinematicBody2D"]

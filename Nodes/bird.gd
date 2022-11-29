@@ -95,7 +95,6 @@ func crave():
 	if hunger_level <= 2:
 		#hunger_bubble.visible = false
 		#worm.visible = false
-		#famished_bubble.visible = true
 		famished_animation.play("Hungry")
 		if has_squawked == false:
 			play_sound(squawk)
@@ -107,14 +106,14 @@ func crave():
 func become_randy():
 	if hunger_level > 15:
 		randy = true
-		#mate.visible = true
 		randy_animation.play("Randy")
 		if has_whistled == false:
 			play_sound(whistle)
 			has_whistled = true
 	else:
 		randy = false
-		#mate.visible = false
+		randy_animation.play("RESET")
+
 
 
 # ... for eating and and nesting
