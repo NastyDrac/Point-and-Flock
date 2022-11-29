@@ -22,6 +22,7 @@ func _on_Timer_timeout():
 	timer.start(60)
 
 func _ready():
+	print(Global.high_scores) # test to read high scores at game's start
 	randomize()
 	spawn_material()
 

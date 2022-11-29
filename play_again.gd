@@ -45,6 +45,7 @@ func _ready():
 	score_display.text = "You had " + str(player_score) + " birds in your flock."
 	header.text = "High Scores"
 	manage_high_scores(player_score)
+	Global.save_high_scores()
 	populate_high_scores()
 
 func _on_Button_pressed():
