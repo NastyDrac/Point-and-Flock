@@ -57,6 +57,8 @@ func _on_Area2D_mouse_exited(): # Detects mouse off bird
 func select():
 	if Input.is_action_just_pressed("click") and in_area == true:
 		selected = true
+		
+		sprite.animation = "new_bird_flying"
 
 func set_destination():
 	if Input.is_action_just_pressed("click") and selected == true:
@@ -80,6 +82,8 @@ func stop():
 		is_moving = false
 		animate.playing = false
 		animate.frame = 0
+		destination = Vector2()
+
 
 
 # ... for managing "owned" bird states (hungry, randy, etc.)
@@ -100,9 +104,7 @@ func crave():
 		if has_squawked == false:
 			play_sound(squawk)
 			has_squawked = true
-	#if hunger_level > 5:
-		#hunger_bubble.visible = false
-		#worm.visible = false
+	
 
 func become_randy():
 	if hunger_level > 15:
@@ -195,13 +197,16 @@ func _physics_process(delta):
 	else:
 		hunger_bubble.flip_h = true
 
-
 func _on_idleTimer_timeout():
-	animate.play("Freak")
-	animate.playing = true
+	if is_moving == false:
+		sprite.play("Freak")
+	else:
+		idleTimer.start(rand_range(5, 10))
 
 
-func _on_AnimatedSprite_animation_finished(Freak):
-	animate.play("new_bird_flying")
-	animate.frame = 0
-	idleTimer = rand_range(5, 10)
+func _on_AnimatedSprite_animation_finished():
+	if sprite.animation == "Freak":
+		print("stop")
+		sprite.stop()
+		animate.frame = 0
+		idleTimer.start(rand_range(5, 10))

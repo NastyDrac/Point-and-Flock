@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://Nodes/bird.gd" type="Script" id=1]
 [ext_resource path="res://sprites/Bubble_empty.png" type="Texture" id=3]
@@ -9,6 +9,11 @@
 [ext_resource path="res://sprites/new_bird_flying.png" type="Texture" id=8]
 [ext_resource path="res://Freak.png" type="Texture" id=9]
 [ext_resource path="res://sprites/Bubble_famished.png" type="Texture" id=10]
+
+[sub_resource type="AtlasTexture" id=37]
+flags = 4
+atlas = ExtResource( 8 )
+region = Rect2( 0, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=32]
 flags = 4
@@ -67,7 +72,7 @@ region = Rect2( 160, 0, 32, 32 )
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ SubResource( 32 ), SubResource( 33 ), SubResource( 34 ), SubResource( 35 ), SubResource( 36 ) ],
+"frames": [ SubResource( 37 ), SubResource( 32 ), SubResource( 33 ), SubResource( 34 ), SubResource( 35 ), SubResource( 36 ) ],
 "loop": true,
 "name": "Freak",
 "speed": 3.0
@@ -81,6 +86,9 @@ animations = [ {
 [sub_resource type="CapsuleShape2D" id=25]
 radius = 22.8107
 height = 29.3391
+
+[sub_resource type="CircleShape2D" id=38]
+radius = 37.6563
 
 [sub_resource type="Animation" id=26]
 resource_name = "Hungry"
@@ -629,9 +637,8 @@ shape = SubResource( 25 )
 
 [node name="bird_body" type="Area2D" parent="."]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="bird_body"]
-visible = false
-polygon = PoolVector2Array( 23, 7, 33, -6, -10, -18, -30, -4, -18, -4, -11, 0, 9, 21, 14, 20, 14, 13 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bird_body"]
+shape = SubResource( 38 )
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 3.0
