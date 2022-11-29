@@ -205,7 +205,6 @@ func _on_idleTimer_timeout():
 
 func _on_AnimatedSprite_animation_finished():
 	if sprite.animation == "Freak":
-		print("stop")
 		sprite.stop()
 		animate.frame = 0
 		idleTimer.start(rand_range(5, 10))

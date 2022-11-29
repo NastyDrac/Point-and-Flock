@@ -18,7 +18,7 @@ func _on_Timer_timeout():
 		get_parent().add_child(new_egg)
 		new_egg.position = egg_spot
 		num_of_eggs += 1
-	animate.play("Fade")
+	animate.play("newFade")
 
 func _on_Nest_area_entered(area):
 	if area.get_name() == "bird_body" and area.get_parent().is_owned == true:
