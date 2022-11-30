@@ -146,7 +146,7 @@ func build():
 
 func _on_bird_body_area_entered(area): # Eats food or gathers nest materials
 	if area.get_name() == "food":
-		get_parent().spawn_food()
+		#get_parent().spawn_food()
 		eat()
 	elif area.get_name() == "Materials" and randy == true:
 		gather()

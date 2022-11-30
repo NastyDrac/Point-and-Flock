@@ -1,5 +1,5 @@
 extends Node2D
-var max_food 
+var max_food
 onready var global = get_node("res://Global.gd")
 onready var timer = get_node("Timer")
 onready var score_display = get_node("Label") # points to the label displaying the current score
