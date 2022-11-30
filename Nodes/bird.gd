@@ -15,6 +15,7 @@ onready var randy_animation = $RandyAnimation
 onready var worm = get_node("bubble/worm")
 onready var mate = get_node("nest_bubble")
 onready var idleTimer = get_node("AnimatedSprite/idleTimer")
+onready var highLight = get_node("Hightlight")
 # Bird parameters/attributes
 export var speed = 100
 var selected = false
@@ -57,15 +58,17 @@ func _on_Area2D_mouse_exited(): # Detects mouse off bird
 func select():
 	if Input.is_action_just_pressed("click") and in_area == true:
 		selected = true
+		highLight.visible = true
 		
-		sprite.animation = "new_bird_flying"
 
 func set_destination():
 	if Input.is_action_just_pressed("click") and selected == true:
+		sprite.animation = "new_bird_flying"
 		is_moving = true
 		destination = get_global_mouse_position()
 		selected = false
 		animate.playing = true
+		highLight.visible = false
 
 func move():
 	if position < destination:
@@ -103,6 +106,8 @@ func crave():
 		if has_squawked == false:
 			play_sound(squawk)
 			has_squawked = true
+	if hunger_level > 6:
+		hungry_animation.play("RESET")
 	
 
 func become_randy():

@@ -1,6 +1,7 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://Nodes/bird.gd" type="Script" id=1]
+[ext_resource path="res://sprites/hightlight.png" type="Texture" id=2]
 [ext_resource path="res://sprites/Bubble_empty.png" type="Texture" id=3]
 [ext_resource path="res://sprites/worm.png" type="Texture" id=4]
 [ext_resource path="res://sprites/Bubble_randy.png" type="Texture" id=5]
@@ -84,7 +85,7 @@ animations = [ {
 } ]
 
 [sub_resource type="CapsuleShape2D" id=25]
-radius = 22.8107
+radius = 11.1801
 height = 29.3391
 
 [sub_resource type="CircleShape2D" id=38]
@@ -599,6 +600,12 @@ tracks/3/keys = {
 input_pickable = true
 script = ExtResource( 1 )
 
+[node name="Hightlight" type="Sprite" parent="."]
+visible = false
+position = Vector2( 2, 15 )
+scale = Vector2( 2, 1 )
+texture = ExtResource( 2 )
+
 [node name="nest_bubble" type="Sprite" parent="."]
 physics_interpolation_mode = 2
 self_modulate = Color( 1, 1, 1, 0 )
@@ -640,6 +647,7 @@ shape = SubResource( 25 )
 [node name="bird_body" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bird_body"]
+position = Vector2( 1, 0 )
 shape = SubResource( 38 )
 
 [node name="Timer" type="Timer" parent="."]
